@@ -13,29 +13,29 @@ describe('fly-sharp App', function() {
   });
 
   it('should show 5 rows in the table', () => {
-    page.navigateTo();
+    page.navigateToTab('buy');
     expect(page.getNumTableRows()).toEqual(5);
   });
 
 
   it('should show 0 rows in the table when toggle is clicked', () => {
-    page.navigateTo();
+    page.navigateToTab('buy');
     page.clickToggle();
     expect(page.getNumTableRows()).toEqual(0);
   });
 
-  it('should show 8 columns in the table', () => {
-    page.navigateTo();
-    expect(page.getNumTableCols()).toEqual(8);
+  it('should show 9 columns in the table', () => {
+    page.navigateToTab('buy');
+    expect(page.getNumTableCols()).toEqual(9);
   });  
 
   it('flight number for 5th flight should be FS2211', () => {
-    page.navigateTo();
-    expect(page.getTableCellData('5','1')).toBe("FS2211");
+    page.navigateToTab('buy');
+    expect(page.getTableCellData('5','2')).toBe("FS2211");
   })
 
   it('destination for 5th flight should be LHR', () => {
-    page.navigateTo();
-    expect(page.getTableCellData('5','3')).toBe("LHR");
+    page.navigateToTab('buy');
+    expect(page.getTableCellData('5','4')).toBe("LHR");
   })  
 });

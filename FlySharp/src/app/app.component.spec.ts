@@ -4,12 +4,17 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {HomeComponent} from "./home/home.component";
 import {BuyFlightComponent} from "./buy-flight/buy-flight.component";
+import { PaymentComponent } from './payment/payment.component';
+import { FlightFilterComponent } from './flight-filter/flight-filter.component';
+import { RouterModule } from '@angular/router';
+import { RouterLinkStubDirective, RouterOutletStubComponent } from './router-stubs';
+
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent, HomeComponent, BuyFlightComponent
+        AppComponent, RouterLinkStubDirective, RouterOutletStubComponent
       ],
     });
     TestBed.compileComponents();
@@ -27,10 +32,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Welcome to Fly Sharp');
   }));
 
-  it('should render title in a h1 tag', async(() => {
+  it('should have a router outlet', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('10% off all round-the-World flights');
+    expect(compiled.querySelector('router-outlet').textContent).toBeDefined();
   }));
 });

@@ -5,9 +5,22 @@ export class FlySharpCourseCheckPage {
     return browser.get('/');
   }
 
+  navigateToTab(tab : string) {
+    return browser.get('/' + tab);
+  }  
+
   getParagraphText() {
     return element(by.css('app-root h1')).getText();
   }
+
+  getMyFlightsParagraphText() {
+    return element(by.css('app-root app-my-flights p')).getText();
+  }
+
+
+  getAccountParagraphText() {
+    return element(by.css('app-root app-account p')).getText();
+  }  
 
   getAppHomeH1(){
     return element(by.css('app-home h1')).getText();
@@ -38,5 +51,30 @@ export class FlySharpCourseCheckPage {
     return element(by.css('app-root app-payment'));
   }
 
+  getFlightFilterElement(){
+    return element(by.css('app-root app-flight-filter'));
+  }
+  
+  getRouterOutlet(){
+    return element(by.css('router-outlet'));
+  }
+
+  getTableCellData(row : string, col : string){
+    let query : string = 'table tr:nth-child(' + row + ') td:nth-child(' + col + ')';
+    //console.log("QUERY: " + query);
+    return element(by.css(query)).getText();
+  }
+
+  clickBuyFlightButton(){
+    element(by.css('app-buy-flight button')).click();
+  }
+
+  getPaymentForm(){
+    return element(by.css('app-payment form'));
+  }
+
+  getPaymentComponentElement(){
+    return element(by.css('app-payment'));
+  }
   
 }

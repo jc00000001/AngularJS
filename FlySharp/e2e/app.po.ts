@@ -5,6 +5,10 @@ export class FlySharpPage {
     return browser.get('/');
   }
 
+  navigateToTab(tab : string) {
+    return browser.get('/' + tab);
+  }    
+
   getParagraphText() {
     return element(by.css('app-root h1')).getText();
   }
@@ -23,7 +27,7 @@ export class FlySharpPage {
 
   getTableCellData(row : string, col : string){
     let query : string = 'table tr:nth-child(' + row + ') td:nth-child(' + col + ')';
-    console.log("QUERY: " + query);
+    //console.log("QUERY: " + query);
     return element(by.css(query)).getText();
   }
 }
